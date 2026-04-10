@@ -3,14 +3,12 @@
 	<body>
 		<h2> Copies for name [[${name}]] </h2>
 		<ul>
-		    <li th:each="res, iter : ${result}" class="table-row" 
-		        th:style="'color: hsl(' + (${iter.index} * 36) + ', 70%, 50%);'">
+		    <li th:each="res, iter : ${result}" class="table-row">
 		        [[${res}]]
 		    </li>
 		</ul>
 		<a href="/">Back</a>
 		<script>
-		    // Grab all list items and assign a random HSL color
 		    document.querySelectorAll('.table-row').forEach(item => {
 		        const randomHue = Math.floor(Math.random() * 360);
 		        item.style.color = `hsl(${randomHue}, 70%, 50%)`;
