@@ -1,8 +1,10 @@
+# Build stage
 FROM maven:3.8.5-openjdk-17 AS build
 COPY . .
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17-jdk-slim
-COPY target/*.jar app.jar
+# Run stage (Updated for OpenShift compatibility)
+FROM registry.access.redhat.com/ubi8/openjdk-17-runtime:latest
+COPY --from=build /target/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
