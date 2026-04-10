@@ -14,14 +14,14 @@ public class Calculate {
 	}
 	
 	@PostMapping("/calculate")
-	public String calculateTable(@RequestParam("num") int num,Model model) {
-		int [] result=new int[10];
-		for(int i=1;i<10;i++) {
-			result[i-1]=num*i;
+	public String calculateTable(@RequestParam("name") String name,Model model) {
+		String [] result=new String[5];
+		for(int i=0;i<5;i++) {
+			result[i]=name;
 			
 		}
+		model.addAttribute("name",name);
 		model.addAttribute("result",result);
-		model.addAttribute("num",num);
 		return "result";
 	}
 	
