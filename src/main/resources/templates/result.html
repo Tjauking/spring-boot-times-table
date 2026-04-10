@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h2> Time table for [[${number}]] </h2>
+		<ul>
+			<li th:each="res,i:${results} " >
+				[[${number}]]*[[${i.index+1}]]=[[${res}]]
+			</li>
+		</ul>
+		<a href="/index">Back</a>
+	</body>
+</html>
+	
